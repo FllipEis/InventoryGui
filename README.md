@@ -153,18 +153,18 @@ You can easily depend on the library with maven.
 ```xml
 <repositories>
     <repository>
-		<id>jitpack.io</id>
-		<url>https://jitpack.io</url>
+	<id>jitpack.io</id>
+	<url>https://jitpack.io</url>
     </repository>
 </repositories>
 ```
 ```xml
 <dependencies>
     <dependency>
-	    <groupId>com.github.FllipEis</groupId>
-	    <artifactId>InventoryGui</artifactId>
-	    <version>259052c0c2</version>
-        <scope>compile</scope>
+	<groupId>com.github.FllipEis</groupId>
+	<artifactId>InventoryGui</artifactId>
+	<version>259052c0c2</version>
+	<scope>compile</scope>
     </dependency>
 </dependencies>
 ```
