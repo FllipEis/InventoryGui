@@ -177,6 +177,8 @@ You can easily depend on the library with maven.
 </repositories>
 ```
 
+## Depending on InventoryGui with gradle
+You can easily depend on the library with gradle.
 ```gradle
 allprojects {
     repositories {
