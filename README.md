@@ -153,27 +153,43 @@ You can easily depend on the library with maven.
 ```xml
 <repositories>
     <repository>
-        <id>minebench-repo</id>
-        <url>https://repo.minebench.de/</url>
+		<id>jitpack.io</id>
+		<url>https://jitpack.io</url>
     </repository>
 </repositories>
 ```
 ```xml
 <dependencies>
     <dependency>
-        <groupId>de.themoep</groupId>
-        <artifactId>inventorygui</artifactId>
-        <!--The following version may not be the latest. Check it before using.-->
-        <version>1.4.2-SNAPSHOT</version>
+	    <groupId>com.github.FllipEis</groupId>
+	    <artifactId>InventoryGui</artifactId>
+	    <version>259052c0c2</version>
         <scope>compile</scope>
     </dependency>
 </dependencies>
 ```
-As this is not a stadalone plugin you have to shade it into your plugin!
-E.g. with the maven-shade-plugin [like this](https://github.com/Minebench/Pipes/blob/048337e7594684353e7360411b1ef6ba8e7223c4/pom.xml#L63-L82).
+```xml
+<repositories>
+    <repository>
+		<id>jitpack.io</id>
+		<url>https://jitpack.io</url>
+    </repository>
+</repositories>
+```
 
-You can also get development builds directly from the [Minebench Jenkins ci server](https://ci.minebench.de/job/InventoryGui/)
-if you want to manually add it to your project but I strongly advise using a dependency management tool like maven or gradle!
+```gradle
+allprojects {
+    repositories {
+        ...
+        maven { url 'https://jitpack.io' }
+    }
+}
+```
+```gradle
+dependencies {
+    implementation 'com.github.FllipEis:InventoryGui:259052c0c2'
+}
+```
 
 ## License
 InventoryGui is licensed under the following, MIT license:
