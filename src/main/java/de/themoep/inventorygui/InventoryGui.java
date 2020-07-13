@@ -24,7 +24,6 @@ package de.themoep.inventorygui;
 
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
-import org.bukkit.Nameable;
 import org.bukkit.Sound;
 import org.bukkit.block.BlockState;
 import org.bukkit.entity.Entity;
@@ -1031,7 +1030,6 @@ public class InventoryGui implements Listener {
     public String replaceVars(String text, String... replacements) {
         text = replace(replace(text, replacements),
                 "plugin", plugin.getName(),
-                "owner", owner instanceof Nameable ? ((Nameable) owner).getCustomName() : "",
                 "title", title,
                 "page", String.valueOf(getPageNumber() + 1),
                 "nextpage", getPageNumber() + 1 < getPageAmount() ? String.valueOf(getPageNumber() + 2) : "none",
