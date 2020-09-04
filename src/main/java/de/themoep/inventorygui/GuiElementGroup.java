@@ -115,7 +115,7 @@ public class GuiElementGroup extends GuiElement {
     /**
      * Get the element in a certain slot
      * @param slot  The slot to get the element for
-     * @return      The GuiElement in that slot or <tt>null</tt>
+     * @return      The GuiElement in that slot or <code>null</code>
      */
     public GuiElement getElement(int slot) {
         return getElement(slot, 0);
@@ -125,7 +125,7 @@ public class GuiElementGroup extends GuiElement {
      * Get the element in a certain slot on a certain page
      * @param slot          The slot to get the element for
      * @param pageNumber    The number of the page that the gui is on
-     * @return              The GuiElement in that slot or <tt>null</tt>
+     * @return              The GuiElement in that slot or <code>null</code>
      */
     public GuiElement getElement(int slot, int pageNumber) {
         if (elements.isEmpty()) {
@@ -136,6 +136,15 @@ public class GuiElementGroup extends GuiElement {
             return elements.get(index);
         }
         return filler;
+    }
+
+    /**
+     * Get all elements of this group. This list is immutable, use {@link #addElement(GuiElement)}
+     * and {@link #clearElements()} to modify the elements in this group.
+     * @return An immutable list of all elements in this group
+     */
+    public List<GuiElement> getElements() {
+        return Collections.unmodifiableList(elements);
     }
 
     /**
