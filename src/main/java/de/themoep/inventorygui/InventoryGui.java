@@ -41,6 +41,7 @@ import org.bukkit.event.inventory.InventoryCloseEvent;
 import org.bukkit.event.inventory.InventoryDragEvent;
 import org.bukkit.event.inventory.InventoryMoveItemEvent;
 import org.bukkit.event.inventory.InventoryType;
+import org.bukkit.event.player.PlayerSwapHandItemsEvent;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.InventoryHolder;
 import org.bukkit.inventory.ItemStack;
@@ -604,6 +605,15 @@ public class InventoryGui implements Listener {
     }
 
     /**
+     * Get an element by its character
+     * @param c The character to get the element by
+     * @return  The GuiElement or <code>null</code> if there is no element for that character
+     */
+    public GuiElement getElement(char c) {
+        return elements.get(c);
+    }
+
+    /**
      * Get all elements of this gui. This collection is immutable, use the addElement and removeElement methods
      * to modify the elements in this gui.
      * @return An immutable collection of all elements in this group
@@ -947,6 +957,14 @@ public class InventoryGui implements Listener {
                 destroy();
             }
         }
+
+        @EventHandler(priority = EventPriority.HIGHEST)
+        public void onInventoryMoveItem(PlayerSwapHandItemsEvent event) {
+            Inventory inventory = getInventory(event.getPlayer());
+            if (event.getPlayer().getOpenInventory().getTopInventory().equals(inventory)) {
+                event.setCancelled(true);
+            }
+        }
     
         public void unregister() {
             InventoryClickEvent.getHandlerList().unregister(this);
@@ -956,6 +974,7 @@ public class InventoryGui implements Listener {
             BlockDispenseEvent.getHandlerList().unregister(this);
             BlockBreakEvent.getHandlerList().unregister(this);
             EntityDeathEvent.getHandlerList().unregister(this);
+            PlayerSwapHandItemsEvent.getHandlerList().unregister(this);
         }
     }
     
