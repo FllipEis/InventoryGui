@@ -191,7 +191,6 @@ You can easily depend on the library with maven.
     </dependency>
 </dependencies>
 ```
-
 ## Depending on InventoryGui with gradle
 You can easily depend on the library with gradle.
 ```gradle
@@ -207,6 +206,9 @@ dependencies {
     implementation 'com.github.FllipEis:InventoryGui:259052c0c2'
 }
 ```
+As this is not a standalone plugin you have to shade it into your plugin!
+E.g. with the maven-shade-plugin [like this](https://github.com/Minebench/Pipes/blob/048337e7594684353e7360411b1ef6ba8e7223c4/pom.xml#L63-L82).
+
 
 ## License
 InventoryGui is licensed under the following, MIT license:
